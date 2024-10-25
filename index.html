@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Student Attendance Management System</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Student Attendance Management System</h1>
+
+        <div id="loginSection">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <label for="role">Role:</label>
+                <label><input type="radio" name="role" value="student" required> Student</label>
+                <label><input type="radio" name="role" value="teacher" required> Teacher</label>
+                <label for="email">Email:</label>
+                <input type="email" id="email" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" required>
+                <button type="submit">Login</button>
+            </form>
+            <p>Don't have an account? <a href="#" onclick="toggleSection('registerSection')">Register here</a>.</p>
+        </div>
+
+        <div id="registerSection" style="display: none;">
+            <h2>Register</h2>
+            <form id="registerForm">
+                <label for="regEmail">Email:</label>
+                <input type="email" id="regEmail" required>
+                <label for="regUsername">Username:</label>
+                <input type="text" id="regUsername" required>
+                <label for="regPassword">Password:</label>
+                <input type="password" id="regPassword" required>
+                <button type="submit">Register</button>
+            </form>
+            <p>Already have an account? <a href="#" onclick="toggleSection('loginSection')">Login here</a>.</p>
+        </div>
+
+        <div id="attendanceSection" style="display: none;">
+            <h2>Attendance Tracker</h2>
+            <div id="message" style="color: green; text-align: center; margin-bottom: 20px; font-weight: bold;"></div> <!-- Message Display Area -->
+            <form id="attendanceForm">
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" required>
+                <label for="middleName">Middle Name:</label>
+                <input type="text" id="middleName">
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" required>
+                <label for="section">Section:</label>
+                <input type="text" id="section" required>
+                <label for="subject">Subject:</label>
+                <input type="text" id="subject" required>
+                <label for="date">Date (dd/mm/yyyy):</label>
+                <input type="text" id="date" required>
+                <label for="time">Time:</label>
+                <input type="time" id="time" required>
+                <label for="attendanceEmail">Email Address:</label>
+                <input type="email" id="attendanceEmail" required>
+                <label>Attendance:</label>
+                <label><input type="radio" name="attendance" value="Present" required> Present</label>
+                <label><input type="radio" name="attendance" value="Absent"> Absent</label>
+                <button type="submit">Submit Attendance</button>
+            </form>
+            <button id="logoutButton" style="margin-top: 20px; display: none;" onclick="logout()">Logout</button> <!-- Logout Button -->
+        </div>
+
+        <div id="teacherRecordsSection" style="display: none;">
+            <h2>Attendance Records</h2>
+            <ul id="recordsList"></ul> <!-- Display attendance records here -->
+            <button id="logoutButton" style="margin-top: 20px;" onclick="logout()">Logout</button> <!-- Logout Button -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
